@@ -5,7 +5,8 @@
   "author": "Krystian Kupiec",
   "license": "MIT",
   "devDependencies": {
-    "commitizen": "^4.1.2",
+    "@commitlint/cli": "^9.1.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "gatsby": "^2.24.36",
     "husky": "^4.2.5",
     "react": "^16.13.1",
@@ -16,7 +17,7 @@
   },
   "husky": {
     "hooks": {
-      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
