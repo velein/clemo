@@ -1,4 +1,8 @@
+/** @type { import("gatsby").GatsbyConfig } */
 module.exports = {
+    siteMetadata: {
+        title: 'Clemo',
+    },
     plugins: [
         `gatsby-plugin-mdx`,
         {
