@@ -1,10 +1,17 @@
-/** @type { import("gatsby").GatsbyConfig } */
+/** @type { import( "gatsby" ).GatsbyConfig } */
 module.exports = {
     siteMetadata: {
         title: 'Clemo',
     },
     plugins: [
-        `gatsby-plugin-mdx`,
+        {
+            resolve: `gatsby-plugin-mdx`,
+            options: {
+                defaultLayouts: {
+                    default: require.resolve('./src/layouts/Page.tsx'),
+                },
+            },
+        },
         {
             resolve: `gatsby-source-filesystem`,
             options: {
