@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Button } from '../components'
 
 const Section = styled.section`
     max-width: 600px;
@@ -8,7 +9,14 @@ const Section = styled.section`
 `
 
 const PageLayout: React.FC = ({ children }) => {
-    return <Section>{children}</Section>
+    return (
+        <Section>
+            {children}{' '}
+            <Button colorSchema="dark" onClick={() => {}}>
+                Boop
+            </Button>
+        </Section>
+    )
 }
 
 export default PageLayout
