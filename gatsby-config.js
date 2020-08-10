@@ -5,6 +5,9 @@ module.exports = {
     },
     plugins: [
         {
+            resolve: `gatsby-plugin-emotion`,
+        },
+        {
             resolve: `gatsby-plugin-mdx`,
             options: {
                 defaultLayouts: {
