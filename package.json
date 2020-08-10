@@ -20,10 +20,11 @@
         "gatsby-source-filesystem": "^2.3.24",
         "husky": "^4.2.5",
         "react": "^16.13.1",
-        "react-dom": "^16.13.1"
+        "react-dom": "^16.13.1",
+        "typescript": "^3.9.7"
     },
     "scripts": {
-        "develop": "gatsby develop"
+        "start": "gatsby clean && gatsby develop"
     },
     "husky": {
         "hooks": {

@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "moduleResolution": "node",
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": ["ESNext", "DOM"],
+        "jsx": "react",
+        "strict": true,
+        "noEmit": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "exclude": ["node_modules", "public", ".cache"]
+}
