@@ -11,10 +11,7 @@ const Section = styled.section`
 const PageLayout: React.FC = ({ children }) => {
     return (
         <Section>
-            {children}{' '}
-            <Button colorSchema="dark" onClick={() => {}}>
-                Boop
-            </Button>
+            {children} <Button colorSchema="dark" label="Boop" />
         </Section>
     )
 }
