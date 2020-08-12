@@ -1,9 +1,18 @@
+import React from 'react'
 import { css } from '@emotion/core'
-import { fonts } from './settings'
+import { Global } from '@emotion/core'
 
-export const globalStyles = css`
+const styles = css`
     body {
-        font-family: ${fonts.monsterrat};
+        font-family: 'Montserrat', sans-serif;
         font-size: 18px;
+        color: #000000;
+    }
+
+    a,
+    button {
+        font-family: inherit;
     }
 `
+
+export const GlobalStyles: React.FC = () => <Global styles={styles} />
