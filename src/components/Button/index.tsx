@@ -1,42 +1,18 @@
 import React from 'react'
-import { css } from '@emotion/core'
-import styled from '@emotion/styled'
-import { resetButton } from '../../styled/helpers'
+
+import { ButtonStyled } from './index.styled'
 
 export interface ButtonProps {
-    colorSchema: 'dark' | 'light' | 'ghost'
+    variant: 'dark' | 'light' | 'ghost'
     onClick?: () => void
     label: string
 }
+export type ButtonStyleProps = Pick<ButtonProps, 'variant'>
 
-const DarkButton = ({ colorSchema }: Pick<ButtonProps, 'colorSchema'>) =>
-    colorSchema === 'dark' &&
-    css`
-        background-color: #000000;
-        color: #ffffff;
-
-        &:hover {
-            background-color: #ffcb93;
-            color: #000000;
-        }
-    `
-
-const StyledButton = styled.button<Pick<ButtonProps, 'colorSchema'>>`
-    ${resetButton}
-    border-radius: 25px;
-    font-size: 18px;
-    padding: 16px 32px;
-    ${DarkButton}
-`
-
-export const Button: React.FC<ButtonProps> = ({
-    colorSchema,
-    label,
-    onClick,
-}) => {
+export const Button: React.FC<ButtonProps> = ({ variant, label, onClick }) => {
     return (
-        <StyledButton onClick={onClick} colorSchema={colorSchema}>
+        <ButtonStyled onClick={onClick} variant={variant}>
             {label}
-        </StyledButton>
+        </ButtonStyled>
     )
 }

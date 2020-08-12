@@ -1,8 +1,9 @@
 import React from 'react'
 import { Global } from '@emotion/core'
 import styled from '@emotion/styled'
-import { Button } from '../components'
-import { global } from '../styled/global'
+
+import { globalStyles } from '~styled/global'
+import { Button } from '~components/Button'
 
 const Section = styled.section`
     max-width: 600px;
@@ -14,8 +15,8 @@ const Section = styled.section`
 const PageLayout: React.FC = ({ children }) => {
     return (
         <Section>
-            <Global styles={global} />
-            {children} <Button colorSchema="dark" label="Boop" />
+            <Global styles={globalStyles} />
+            {children} <Button variant="dark" label="Boop" />
         </Section>
     )
 }

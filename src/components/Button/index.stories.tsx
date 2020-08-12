@@ -12,18 +12,18 @@ const Template: Story<ButtonProps> = (args) => <Button {...args} />
 
 export const Dark = Template.bind({})
 Dark.args = {
-    colorSchema: 'dark',
+    variant: 'dark',
     label: 'get in touch',
 }
 
 export const Ghost = Template.bind({})
 Ghost.args = {
-    colorSchema: 'ghost',
+    variant: 'ghost',
     label: 'learn more',
 }
 
 export const Light = Template.bind({})
 Light.args = {
-    colorSchema: 'light',
+    variant: 'light',
     label: 'get started',
 }
