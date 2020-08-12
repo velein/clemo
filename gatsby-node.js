@@ -1,3 +1,5 @@
+const path = require('path')
+
 /** @type { import( "gatsby" ).GatsbyNode['onCreatePage'] } */
 exports.onCreatePage = async ({ actions, page }) => {
     const { createPage, deletePage } = actions
@@ -16,4 +18,16 @@ exports.onCreatePage = async ({ actions, page }) => {
             path: page.context.frontmatter.path || page.path,
         })
     }
+}
+
+/** @type { import( "gatsby" ).GatsbyNode['onCreateWebpackConfig'] } */
+exports.onCreateWebpackConfig = ({ actions }) => {
+    actions.setWebpackConfig({
+        resolve: {
+            alias: {
+                '~components': path.resolve(__dirname, 'src/components'),
+                '~styled': path.resolve(__dirname, 'src/styled'),
+            },
+        },
+    })
 }
