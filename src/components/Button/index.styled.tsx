@@ -2,7 +2,6 @@ import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 
 import { ButtonStyleProps } from '.'
-import { colors } from '~styled/settings'
 
 const variantDark = ({ variant }: ButtonStyleProps) =>
     variant === 'dark' &&
@@ -19,7 +18,7 @@ const variantDark = ({ variant }: ButtonStyleProps) =>
 const variantGhost = ({ variant }: ButtonStyleProps) =>
     variant === 'ghost' &&
     css`
-        border: 1px solid ${colors.alto};
+        border: 1px solid #d8d8d8;
         color: #000000;
 
         &:hover {
