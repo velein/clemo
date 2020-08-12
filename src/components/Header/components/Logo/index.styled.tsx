@@ -1,7 +1,7 @@
 import Link from 'gatsby-link'
 import styled from '@emotion/styled'
 
-export const LogoStyled = styled(Link)`
+export const LogoStyled = styled.a`
     display: block;
     color: #000000;
     text-decoration: none;

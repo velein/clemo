@@ -11,7 +11,12 @@ const styles = css`
 
     a,
     button {
+        color: inherit;
         font-family: inherit;
+    }
+
+    a {
+        text-decoration: none;
     }
 `
 
