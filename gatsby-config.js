@@ -22,5 +22,11 @@ module.exports = {
                 path: `${__dirname}/src/pages/`,
             },
         },
+        {
+            resolve: `gatsby-plugin-google-fonts`,
+            options: {
+                fonts: [`montserrat`],
+            },
+        },
     ],
 }

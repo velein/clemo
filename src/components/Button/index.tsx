@@ -3,6 +3,12 @@ import { css } from '@emotion/core'
 import styled from '@emotion/styled'
 import { resetButton } from '../../styled/helpers'
 
+export interface ButtonProps {
+    colorSchema: 'dark' | 'light' | 'ghost'
+    onClick?: () => void
+    label: string
+}
+
 const DarkButton = ({ colorSchema }: Pick<ButtonProps, 'colorSchema'>) =>
     colorSchema === 'dark' &&
     css`
@@ -22,12 +28,6 @@ const StyledButton = styled.button<Pick<ButtonProps, 'colorSchema'>>`
     padding: 16px 32px;
     ${DarkButton}
 `
-
-export interface ButtonProps {
-    colorSchema: 'dark' | 'light' | 'ghost'
-    onClick?: () => void
-    label: string
-}
 
 export const Button: React.FC<ButtonProps> = ({
     colorSchema,
