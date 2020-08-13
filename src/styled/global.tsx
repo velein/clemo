@@ -6,7 +6,6 @@ const styles = css`
     body {
         font-family: 'Montserrat', sans-serif;
         font-size: 18px;
-        color: #000000;
     }
 
     a,
