@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ButtonStyled } from './index.styled'
+import { ButtonStyled } from './styled'
 
 export interface ButtonProps {
     variant: 'dark' | 'light' | 'ghost'

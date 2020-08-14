@@ -1,10 +1,6 @@
 import React from 'react'
 
-import {
-    NavigationItem,
-    NavigationLink,
-    NavigationStyled,
-} from './index.styled'
+import { NavigationItem, NavigationLink, NavigationStyled } from './styled'
 
 export interface NavigationItemStyleProps {
     active?: boolean

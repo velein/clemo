@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+
 import { ContainerStyleProps } from '.'
 
 export const ContainerStyled = styled.div<ContainerStyleProps>`

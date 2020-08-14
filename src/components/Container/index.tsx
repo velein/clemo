@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ContainerStyled } from './index.styled'
+import { ContainerStyled } from './styled'
 
 interface ContainerProps {
     size?: '1024px' | '952px' | '756px'
