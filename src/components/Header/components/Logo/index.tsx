@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { LogoStyled } from './index.styled'
+import { LogoStyled } from './styled'
 
 export const Logo: React.FC = () => (
     <LogoStyled href="/">
