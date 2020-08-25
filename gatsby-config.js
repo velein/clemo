@@ -8,14 +8,6 @@ module.exports = {
             resolve: `gatsby-plugin-emotion`,
         },
         {
-            resolve: `gatsby-plugin-mdx`,
-            options: {
-                defaultLayouts: {
-                    default: require.resolve('./src/layouts/Page.tsx'),
-                },
-            },
-        },
-        {
             resolve: `gatsby-source-filesystem`,
             options: {
                 name: `pages`,

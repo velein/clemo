@@ -11,7 +11,8 @@
         "allowSyntheticDefaultImports": true,
         "paths": {
             "~components/*": ["./src/components/*"],
-            "~styled/*": ["./src/styled/*"]
+            "~styled/*": ["./src/styled/*"],
+            "~layouts/*": ["./src/layouts/*"]
         }
     },
     "exclude": ["node_modules", "public", ".cache"]
