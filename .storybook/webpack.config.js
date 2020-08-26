@@ -13,6 +13,7 @@ module.exports = ({ config }) => {
         ...config.resolve.alias,
         '~components': path.resolve(__dirname, '../src/components'),
         '~styled': path.resolve(__dirname, '../src/styled'),
+        '~layouts': path.resolve(__dirname, '..src/layouts'),
     }
 
     return config
