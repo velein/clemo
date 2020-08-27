@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { SliderContext } from '~components/Slider'
+import { CarouselContext } from '~components/Carousel'
 
 import { SlideStyled } from './styled'
 
@@ -8,7 +8,7 @@ export type SlideStyledProps = {
 }
 
 export const Slide: React.FC<SlideStyledProps> = ({ index, children }) => {
-    const { currentSlide } = useContext(SliderContext)
+    const { currentSlide } = useContext(CarouselContext)
 
     return currentSlide === index ? <SlideStyled>{children}</SlideStyled> : null
 }
