@@ -1,46 +1,52 @@
 {
-  "name": "clemo",
-  "engines": {
-    "node": ">=12.x"
-  },
-  "version": "0.1.0",
-  "main": "index.js",
-  "author": "Krystian Kupiec",
-  "license": "MIT",
-  "devDependencies": {
-    "@babel/core": "^7.11.1",
-    "@commitlint/cli": "^9.1.1",
-    "@commitlint/config-conventional": "^9.1.1",
-    "@emotion/core": "^10.0.28",
-    "@emotion/styled": "^10.0.27",
-    "@storybook/addon-actions": "^6.0.16",
-    "@storybook/addon-essentials": "^6.0.16",
-    "@storybook/addon-links": "^6.0.16",
-    "@storybook/react": "^6.0.16",
-    "@types/react": "^16.9.45",
-    "@types/react-dom": "^16.9.8",
-    "babel-loader": "^8.1.0",
-    "eslint-config-react-app": "^5.2.1",
-    "gatsby": "^2.24.36",
-    "gatsby-link": "^2.4.13",
-    "gatsby-plugin-emotion": "^4.3.10",
-    "gatsby-plugin-google-fonts": "^1.0.1",
-    "gatsby-source-filesystem": "^2.3.24",
-    "husky": "^4.2.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-is": "^16.13.1",
-    "typescript": "^3.9.7"
-  },
-  "dependencies": {},
-  "scripts": {
-    "start": "gatsby clean && gatsby develop",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    "name": "clemo",
+    "engines": {
+        "node": ">=12.x"
+    },
+    "version": "0.1.0",
+    "main": "index.js",
+    "author": "Krystian Kupiec",
+    "license": "MIT",
+    "devDependencies": {
+        "@babel/core": "^7.11.1",
+        "@commitlint/cli": "^9.1.1",
+        "@commitlint/config-conventional": "^9.1.1",
+        "@emotion/core": "^10.0.28",
+        "@emotion/styled": "^10.0.27",
+        "@storybook/addon-actions": "^6.0.16",
+        "@storybook/addon-essentials": "^6.0.16",
+        "@storybook/addon-links": "^6.0.16",
+        "@storybook/react": "^6.0.16",
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^10.4.9",
+        "@types/jest": "^26.0.10",
+        "@types/react": "^16.9.45",
+        "@types/react-dom": "^16.9.8",
+        "babel-loader": "^8.1.0",
+        "eslint-config-react-app": "^5.2.1",
+        "gatsby": "^2.24.36",
+        "gatsby-link": "^2.4.13",
+        "gatsby-plugin-emotion": "^4.3.10",
+        "gatsby-plugin-google-fonts": "^1.0.1",
+        "gatsby-source-filesystem": "^2.3.24",
+        "husky": "^4.2.5",
+        "jest": "^26.4.2",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-is": "^16.13.1",
+        "ts-jest": "^26.3.0",
+        "typescript": "^3.9.7"
+    },
+    "dependencies": {},
+    "scripts": {
+        "start": "gatsby clean && gatsby develop",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook",
+        "test": "jest"
+    },
+    "husky": {
+        "hooks": {
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
     }
-  }
 }
