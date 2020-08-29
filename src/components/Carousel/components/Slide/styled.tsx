@@ -11,5 +11,4 @@ import { SlideStyledProps } from '.'
 export const SlideStyled = styled.div`
     border: 1px solid #000;
     padding: 30px;
-    margin: 10px;
 `

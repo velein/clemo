@@ -15,4 +15,5 @@ const Template: Story = (args) => (
 export const CarouselStory = Template.bind({})
 CarouselStory.args = {
     arrows: true,
+    dots: true,
 }

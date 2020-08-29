@@ -1,8 +1,11 @@
 import React from 'react'
 import { css } from '@emotion/core'
 import { Global } from '@emotion/core'
+import { reset } from './reset'
 
 const styles = css`
+    ${reset}
+
     body {
         font-family: 'Montserrat', sans-serif;
         font-size: 18px;

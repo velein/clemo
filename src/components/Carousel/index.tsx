@@ -5,10 +5,13 @@ import React, {
     useState,
 } from 'react'
 import { Arrows } from './components/Arrows'
+import { Dots } from './components/Dots'
 import { Slides } from './components/Slides'
+import { SliderWrapper } from './styled'
 
 type CarouselProps = {
     arrows?: boolean
+    dots?: boolean
     slides: ReactNodeArray
 }
 
@@ -28,7 +31,7 @@ type CarouselContextType = {
 
 export const CarouselContext = React.createContext({} as CarouselContextType)
 
-export const Carousel: React.FC<CarouselProps> = ({ arrows, slides }) => {
+export const Carousel: React.FC<CarouselProps> = ({ arrows, dots, slides }) => {
     const [currentSlide, setCurrentSlide] = useState<number>(0)
     const [slidesMaxIndex, setSlidesMaxIndex] = useState<number>(0)
 
@@ -67,9 +70,10 @@ export const Carousel: React.FC<CarouselProps> = ({ arrows, slides }) => {
 
     return (
         <CarouselContext.Provider value={value}>
-            <h2> Single Item</h2>
-            <Slides />
-            <small>Active slide: {currentSlide}</small>
+            <SliderWrapper>
+                <Slides />
+                {dots && <Dots />}
+            </SliderWrapper>
             {arrows && <Arrows />}
         </CarouselContext.Provider>
     )
