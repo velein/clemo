@@ -15,7 +15,7 @@ export const Dot = styled.span<DotStyledProps>`
     border-radius: 50%;
     border: 1px solid #000;
     background: transparent;
-    margin: 0 4px;
+    cursor: pointer;
 
     &:hover {
         background-color: #000;
@@ -26,11 +26,8 @@ export const Dot = styled.span<DotStyledProps>`
 
 export const DotsWrapper = styled.div`
     display: flex;
-    cursor: pointer;
     justify-content: center;
     align-items: center;
     position: absolute;
     z-index: 2;
-    bottom: 10px;
-    right: 10px;
 `

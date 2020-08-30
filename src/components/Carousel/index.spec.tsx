@@ -1,15 +1,11 @@
 import React from 'react'
 import { screen, render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { Carousel } from '.'
+import { Carousel, CarouselSlide } from '.'
+import { CarouselDots } from './components/CarouselDots'
+import { CarouselSlides } from './components/CarouselSlides'
 
 const { queryByText } = screen
-
-const MockedSlides = [
-    <div>Slide 1</div>,
-    <div>Slide 2</div>,
-    <div>Slide 3</div>,
-]
 
 const expectSlide = (index: number) => {
     expect(queryByText(`Slide ${index}`)).toBeInTheDocument()
@@ -17,40 +13,33 @@ const expectSlide = (index: number) => {
     expect(queryByText(`Slide ${index + 1}`)).not.toBeInTheDocument()
 }
 
-describe('Carousel arrow mode', () => {
-    test('shows arrows while arrow mode is set', () => {
-        const { debug, getByText } = render(
-            <Carousel arrows slides={MockedSlides} />,
+describe('Carousel ', () => {
+    it('changes slide on navigation dot click', () => {
+        const { getByLabelText } = render(
+            <Carousel>
+                <CarouselSlides>
+                    <CarouselSlide>Slide 1</CarouselSlide>
+                    <CarouselSlide>Slide 2</CarouselSlide>
+                    <CarouselSlide>Slide 3</CarouselSlide>
+                </CarouselSlides>
+                <CarouselDots />
+            </Carousel>,
         )
 
-        debug()
+        const navOne = getByLabelText(/go to slide 0/i)
+        const navTwo = getByLabelText(/go to slide 1/i)
+        const navThree = getByLabelText(/go to slide 2/i)
+
+        expect(navOne).toBeInTheDocument()
+        expect(navTwo).toBeInTheDocument()
+        expect(navThree).toBeInTheDocument()
 
         expectSlide(1)
-        expect(getByText(/next/i)).toBeInTheDocument()
-        expect(getByText(/previous/i)).toBeInTheDocument()
-    })
-
-    test('shows next slide on "next arrow click"', () => {
-        const { getByText } = render(<Carousel arrows slides={MockedSlides} />)
-        const arrowNext = getByText(/next/i)
-        expectSlide(1)
-        fireEvent.click(arrowNext)
+        fireEvent.click(navTwo)
         expectSlide(2)
-        fireEvent.click(arrowNext)
+        fireEvent.click(navThree)
         expectSlide(3)
-        fireEvent.click(arrowNext)
-        expectSlide(1)
-    })
-
-    test('shows previous slide on "previous arrow click"', () => {
-        const { getByText } = render(<Carousel arrows slides={MockedSlides} />)
-        const arrowPrevious = getByText(/previous/i)
-        expectSlide(1)
-        fireEvent.click(arrowPrevious)
-        expectSlide(3)
-        fireEvent.click(arrowPrevious)
-        expectSlide(2)
-        fireEvent.click(arrowPrevious)
+        fireEvent.click(navOne)
         expectSlide(1)
     })
 })

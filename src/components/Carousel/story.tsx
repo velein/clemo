@@ -1,7 +1,9 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import { Carousel } from '.'
+import { Carousel, CarouselSlide } from '.'
+import { CarouselDots } from './components/CarouselDots'
+import { CarouselSlides } from './components/CarouselSlides'
 
 export default {
     title: 'Components/Slider',
@@ -9,7 +11,14 @@ export default {
 } as Meta
 
 const Template: Story = (args) => (
-    <Carousel {...args} slides={[<div>1</div>, <div>2</div>, <div>3</div>]} />
+    <Carousel {...args}>
+        <CarouselSlides>
+            <CarouselSlide>1</CarouselSlide>
+            <CarouselSlide>2</CarouselSlide>
+            <CarouselSlide>3</CarouselSlide>
+        </CarouselSlides>
+        <CarouselDots />
+    </Carousel>
 )
 
 export const CarouselStory = Template.bind({})
