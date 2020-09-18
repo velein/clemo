@@ -8,8 +8,9 @@ type SectionProps = {
 
 export const Section: React.FC<SectionProps> = ({ heading, children }) => {
     return (
-        <Container>
+        <section>
             <Heading>{heading}</Heading>
-        </Container>
+            {children}
+        </section>
     )
 }
