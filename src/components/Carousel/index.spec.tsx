@@ -5,7 +5,17 @@ import { Carousel, CarouselSlide } from '.'
 import { CarouselDots } from './components/CarouselDots'
 import { CarouselSlides } from './components/CarouselSlides'
 
-const { queryByText } = screen
+const mockedCarousel = (
+    <Carousel>
+        <CarouselSlides>
+            <CarouselSlide>Slide 1</CarouselSlide>
+            <CarouselSlide>Slide 2</CarouselSlide>
+            <CarouselSlide>Slide 3</CarouselSlide>
+        </CarouselSlides>
+        <CarouselDots />
+    </Carousel>
+)
+const { queryByText, getByLabelText } = screen
 
 const expectSlide = (index: number) => {
     expect(queryByText(`Slide ${index}`)).toBeInTheDocument()
@@ -14,17 +24,13 @@ const expectSlide = (index: number) => {
 }
 
 describe('Carousel ', () => {
+    it('renders mocked carousel with first slide', () => {
+        render(mockedCarousel)
+        expectSlide(1)
+    })
+
     it('changes slide on navigation dot click', () => {
-        const { getByLabelText } = render(
-            <Carousel>
-                <CarouselSlides>
-                    <CarouselSlide>Slide 1</CarouselSlide>
-                    <CarouselSlide>Slide 2</CarouselSlide>
-                    <CarouselSlide>Slide 3</CarouselSlide>
-                </CarouselSlides>
-                <CarouselDots />
-            </Carousel>,
-        )
+        render(mockedCarousel)
 
         const navOne = getByLabelText(/go to slide 0/i)
         const navTwo = getByLabelText(/go to slide 1/i)
