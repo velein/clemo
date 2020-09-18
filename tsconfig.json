@@ -13,7 +13,8 @@
             "~components/*": ["./src/components/*"],
             "~styled/*": ["./src/styled/*"],
             "~layouts/*": ["./src/layouts/*"]
-        }
+        },
+        "esModuleInterop": true
     },
     "exclude": ["node_modules", "public", ".cache"]
 }

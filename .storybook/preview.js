@@ -1,11 +1,14 @@
 import React from 'react'
 import { GlobalStyles } from '~styled/global'
+import PageLayout from '~layouts/Page'
 
 export const decorators = [
     (Story) => (
         <>
             <GlobalStyles />
-            <Story />
+            <PageLayout>
+                <Story />
+            </PageLayout>
         </>
     ),
 ]
