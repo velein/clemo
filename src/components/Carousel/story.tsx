@@ -1,28 +1,24 @@
 import React from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
-import { Carousel, CarouselSlide } from '.'
-import { CarouselDots } from './components/CarouselDots'
-import { CarouselSlides } from './components/CarouselSlides'
+import { Carousel, CarouselNav, CarouselSlides } from '.'
+import { Dot } from './styled'
 
 export default {
     title: 'Components/Slider',
     component: Carousel,
 } as Meta
 
+// TODO: Add more stories with navigation items, arrows etc.
 const Template: Story = (args) => (
-    <Carousel {...args}>
+    <Carousel>
         <CarouselSlides>
-            <CarouselSlide>1</CarouselSlide>
-            <CarouselSlide>2</CarouselSlide>
-            <CarouselSlide>3</CarouselSlide>
+            <div>Slide 1</div>
+            <div>Slide 2</div>
+            <div>Slide 3</div>
         </CarouselSlides>
-        <CarouselDots />
+        <CarouselNav renderItem={(props) => <Dot {...props} />} />
     </Carousel>
 )
 
 export const CarouselStory = Template.bind({})
-CarouselStory.args = {
-    arrows: true,
-    dots: true,
-}

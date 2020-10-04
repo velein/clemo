@@ -1,51 +1,67 @@
 import React from 'react'
-import { screen, render, fireEvent } from '@testing-library/react'
 import '@testing-library/jest-dom'
-import { Carousel, CarouselSlide } from '.'
-import { CarouselDots } from './components/CarouselDots'
-import { CarouselSlides } from './components/CarouselSlides'
+import { render, fireEvent } from '@testing-library/react'
 
-const mockedCarousel = (
-    <Carousel>
-        <CarouselSlides>
-            <CarouselSlide>Slide 1</CarouselSlide>
-            <CarouselSlide>Slide 2</CarouselSlide>
-            <CarouselSlide>Slide 3</CarouselSlide>
-        </CarouselSlides>
-        <CarouselDots />
-    </Carousel>
-)
-const { queryByText, getByLabelText } = screen
-
-const expectSlide = (index: number) => {
-    expect(queryByText(`Slide ${index}`)).toBeInTheDocument()
-    expect(queryByText(`Slide ${index - 1}`)).not.toBeInTheDocument()
-    expect(queryByText(`Slide ${index + 1}`)).not.toBeInTheDocument()
-}
+import { Carousel, CarouselSlides } from '.'
+import { CarouselNav } from './components/CarouselNav'
+import { Dot } from './styled'
 
 describe('Carousel ', () => {
-    it('renders mocked carousel with first slide', () => {
-        render(mockedCarousel)
-        expectSlide(1)
+    it('renders carousel initially with first slide visible', () => {
+        const { queryByText } = render(
+            <Carousel>
+                <CarouselSlides>
+                    <div>Content 1</div>
+                    <div>Content 2</div>
+                    <div>Content 3</div>
+                </CarouselSlides>
+            </Carousel>,
+        )
+
+        expect(queryByText(/Content 1/i)).toBeInTheDocument()
+        expect(queryByText(/Content 2/i)).not.toBeInTheDocument()
+        expect(queryByText(/Content 3/i)).not.toBeInTheDocument()
     })
 
-    it('changes slide on navigation dot click', () => {
-        render(mockedCarousel)
+    it('renders carousel navigation', () => {
+        const { queryByText, getByLabelText } = render(
+            <Carousel>
+                <CarouselSlides>
+                    <div>Content 1</div>
+                    <div>Content 2</div>
+                </CarouselSlides>
+                <CarouselNav renderItem={(props) => <Dot {...props} />} />
+            </Carousel>,
+        )
 
-        const navOne = getByLabelText(/go to slide 0/i)
-        const navTwo = getByLabelText(/go to slide 1/i)
-        const navThree = getByLabelText(/go to slide 2/i)
+        expect(queryByText(/Content 1/i)).toBeInTheDocument()
+        expect(queryByText(/Content 2/i)).not.toBeInTheDocument()
+        expect(getByLabelText(/go to slide 0/i)).toBeInTheDocument()
+        expect(getByLabelText(/go to slide 1/i)).toBeInTheDocument()
+    })
 
-        expect(navOne).toBeInTheDocument()
-        expect(navTwo).toBeInTheDocument()
-        expect(navThree).toBeInTheDocument()
+    it('changes carousel slide on navigation item click', () => {
+        const { queryByText, getByLabelText } = render(
+            <Carousel>
+                <CarouselSlides>
+                    <div>Content 1</div>
+                    <div>Content 2</div>
+                </CarouselSlides>
+                <CarouselNav renderItem={(props) => <Dot {...props} />} />
+            </Carousel>,
+        )
 
-        expectSlide(1)
-        fireEvent.click(navTwo)
-        expectSlide(2)
-        fireEvent.click(navThree)
-        expectSlide(3)
-        fireEvent.click(navOne)
-        expectSlide(1)
+        expect(queryByText(/Content 1/i)).toBeInTheDocument()
+        expect(queryByText(/Content 2/i)).not.toBeInTheDocument()
+
+        fireEvent.click(getByLabelText(/go to slide 1/i))
+
+        expect(queryByText(/Content 1/i)).not.toBeInTheDocument()
+        expect(queryByText(/Content 2/i)).toBeInTheDocument()
+
+        fireEvent.click(getByLabelText(/go to slide 0/i))
+
+        expect(queryByText(/Content 1/i)).toBeInTheDocument()
+        expect(queryByText(/Content 2/i)).not.toBeInTheDocument()
     })
 })
