@@ -4,7 +4,7 @@ import { render, fireEvent } from '@testing-library/react'
 
 import { Carousel, CarouselSlides } from '.'
 import { CarouselNav } from './components/CarouselNav'
-import { Dot } from './styled'
+import { Dot } from '~components/Dot'
 
 describe('Carousel ', () => {
     it('renders carousel initially with first slide visible', () => {

@@ -33,6 +33,10 @@ export const SlideContent = styled.div`
     max-width: 500px;
 `
 
+export const Slide = styled.div`
+    height: 500px;
+`
+
 // export const StyledCarouselSlide = styled(CarouselSlide)`
 //     background-color: #ffe1bd;
 //     height: 520px;

@@ -2,7 +2,7 @@ import React from 'react'
 import { Story, Meta } from '@storybook/react/types-6-0'
 
 import { Carousel, CarouselNav, CarouselSlides } from '.'
-import { Dot } from './styled'
+import { Dot } from '~components/Dot'
 
 export default {
     title: 'Components/Slider',

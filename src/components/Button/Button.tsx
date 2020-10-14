@@ -19,7 +19,6 @@ export const buttonTransition = css`
 `
 
 export interface ButtonProps {
-    to?: string
     onClick?: () => void
 }
 

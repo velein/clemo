@@ -1,14 +1,16 @@
 import React from 'react'
-import { Button } from '~components/Button'
-import { Carousel, CarouselSlides } from '~components/Carousel'
-import { Description, Headline, SlideContent } from './styled'
+import { ButtonDark } from '~components/Button'
+import { Carousel, CarouselNav, CarouselSlides } from '~components/Carousel'
+import { Dot } from '~components/Dot'
+
+import { Description, Headline, Slide, SlideContent } from './styled'
 
 // TODO: Add styles and navigation
 export const CarouselIntro = () => {
     return (
         <Carousel>
             <CarouselSlides>
-                <div>
+                <Slide>
                     <SlideContent>
                         <Headline>
                             we are clemo
@@ -18,26 +20,27 @@ export const CarouselIntro = () => {
                             professionals
                             <br /> in the creative industries
                         </Description>
-                        <Button variant="dark" label="get in touch" />
+                        <ButtonDark>get in touch</ButtonDark>
                     </SlideContent>
-                </div>
-                <div>
+                </Slide>
+                <Slide>
                     <SlideContent>
                         <Headline>hello there</Headline>
                         <Description>general kenobi</Description>
-                        <Button variant="dark" label="get in touch" />
+                        <ButtonDark>get in touch</ButtonDark>
                     </SlideContent>
-                </div>
-                <div>
+                </Slide>
+                <Slide>
                     <SlideContent>
                         <Headline>we are clemo 3</Headline>
                         <Description>
                             professionals in the creative industries
                         </Description>
-                        <Button variant="dark" label="get in touch" />
+                        <ButtonDark>get in touch</ButtonDark>
                     </SlideContent>
-                </div>
+                </Slide>
             </CarouselSlides>
+            <CarouselNav renderItem={(props) => <Dot {...props} />} />
         </Carousel>
     )
 }
