@@ -1,3 +1,5 @@
+/** @jsx jsx */
+import { css, jsx } from '@emotion/core'
 import React, { ComponentType, useContext } from 'react'
 import { CarouselContext } from '~components/Carousel'
 
@@ -5,7 +7,7 @@ export type CarouselNav = {
     renderItem: ComponentType<CarouselNavItem>
 }
 
-type CarouselNavItem = { index: number; isActive: boolean; onClick: () => void }
+type CarouselNavItem = { onClick: () => void }
 
 /**
  * Renders carousel's navigation.
@@ -31,12 +33,15 @@ export const CarouselNav: React.FC<CarouselNav> = ({
             {slides.map((_, index) => (
                 <CarouselNavItem
                     key={index}
-                    index={index}
-                    isActive={activeSlideIndex === index}
                     aria-label={`go to slide ${index}`}
                     onClick={() => {
                         handleSlideChange('index', index)
                     }}
+                    {...(activeSlideIndex === index && {
+                        css: css`
+                            background-color: #000;
+                        `,
+                    })}
                 />
             ))}
         </nav>
