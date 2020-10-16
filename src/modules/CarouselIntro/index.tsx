@@ -1,16 +1,21 @@
 import React from 'react'
 import { ButtonDark } from '~components/Button'
-import { Carousel, CarouselNav, CarouselSlides } from '~components/Carousel'
-import { Dot } from '~components/Dot'
+import { Carousel, CarouselSlides } from '~components/Carousel'
 
-import { Description, Headline, Slide, SlideContent } from './styled'
+import {
+    CarouselIntroDot,
+    CarouselIntroNav,
+    CarouselSlide,
+    Description,
+    Headline,
+    SlideContent,
+} from './styled'
 
-// TODO: Add styles and navigation
 export const CarouselIntro = () => {
     return (
         <Carousel>
             <CarouselSlides>
-                <Slide>
+                <CarouselSlide>
                     <SlideContent>
                         <Headline>
                             we are clemo
@@ -22,15 +27,15 @@ export const CarouselIntro = () => {
                         </Description>
                         <ButtonDark>get in touch</ButtonDark>
                     </SlideContent>
-                </Slide>
-                <Slide>
+                </CarouselSlide>
+                <CarouselSlide>
                     <SlideContent>
                         <Headline>hello there</Headline>
                         <Description>general kenobi</Description>
                         <ButtonDark>get in touch</ButtonDark>
                     </SlideContent>
-                </Slide>
-                <Slide>
+                </CarouselSlide>
+                <CarouselSlide>
                     <SlideContent>
                         <Headline>we are clemo 3</Headline>
                         <Description>
@@ -38,9 +43,11 @@ export const CarouselIntro = () => {
                         </Description>
                         <ButtonDark>get in touch</ButtonDark>
                     </SlideContent>
-                </Slide>
+                </CarouselSlide>
             </CarouselSlides>
-            <CarouselNav renderItem={(props) => <Dot {...props} />} />
+            <CarouselIntroNav
+                renderItem={(props) => <CarouselIntroDot {...props} />}
+            />
         </Carousel>
     )
 }

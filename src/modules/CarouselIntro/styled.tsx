@@ -1,4 +1,6 @@
 import styled from '@emotion/styled'
+import { CarouselNav } from '~components/Carousel'
+import { Dot } from '~components/Dot'
 // import { CarouselDots, CarouselSlide } from '~components/Carousel'
 
 export const Headline = styled.h2`
@@ -33,21 +35,24 @@ export const SlideContent = styled.div`
     max-width: 500px;
 `
 
-export const Slide = styled.div`
-    height: 500px;
+export const CarouselSlide = styled.div`
+    background-color: #ffe1bd;
+    height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
-// export const StyledCarouselSlide = styled(CarouselSlide)`
-//     background-color: #ffe1bd;
-//     height: 520px;
-//     display: flex;
-//     align-items: center;
-//     justify-content: center;
-// `
+export const CarouselIntroNav = styled(CarouselNav)`
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    flex-direction: column;
+`
 
-// export const StyledCarouselDots = styled(CarouselDots)`
-//     right: 30px;
-//     top: 50%;
-//     transform: translateY(-50%);
-//     flex-direction: column;
-// `
+export const CarouselIntroDot = styled(Dot)`
+    :not(:last-of-type) {
+        margin-bottom: 15px;
+    }
+`

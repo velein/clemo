@@ -1,3 +1,4 @@
+import styled from '@emotion/styled'
 import React, { ReactNode, useState } from 'react'
 
 import { HandleSlideChange, useSlideChange } from './hooks/useSlideChange'
@@ -11,6 +12,10 @@ type CarouselContext = {
     handleSlideChange: HandleSlideChange
 }
 
+const CarouselContainer = styled.section`
+    position: relative;
+`
+
 export const CarouselContext = React.createContext<CarouselContext>(undefined!)
 
 export const Carousel: React.FC = ({ children }) => {
@@ -18,7 +23,7 @@ export const Carousel: React.FC = ({ children }) => {
     const { activeSlideIndex, handleSlideChange } = useSlideChange()
 
     return (
-        <section>
+        <CarouselContainer>
             <CarouselContext.Provider
                 value={{
                     activeSlideIndex,
@@ -29,7 +34,7 @@ export const Carousel: React.FC = ({ children }) => {
             >
                 {children}
             </CarouselContext.Provider>
-        </section>
+        </CarouselContainer>
     )
 }
 
