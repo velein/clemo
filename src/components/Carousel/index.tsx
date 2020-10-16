@@ -18,12 +18,12 @@ const CarouselContainer = styled.section`
 
 export const CarouselContext = React.createContext<CarouselContext>(undefined!)
 
-export const Carousel: React.FC = ({ children }) => {
+export const Carousel: React.FC = ({ children, ...props }) => {
     const [slides, setSlides] = useState<Slides>([])
     const { activeSlideIndex, handleSlideChange } = useSlideChange()
 
     return (
-        <CarouselContainer>
+        <CarouselContainer {...props}>
             <CarouselContext.Provider
                 value={{
                     activeSlideIndex,

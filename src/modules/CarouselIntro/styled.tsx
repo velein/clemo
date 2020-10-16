@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { CarouselNav } from '~components/Carousel'
+import { Carousel, CarouselNav } from '~components/Carousel'
 import { Dot } from '~components/Dot'
 // import { CarouselDots, CarouselSlide } from '~components/Carousel'
 
@@ -33,6 +33,10 @@ export const Description = styled.p`
 export const SlideContent = styled.div`
     text-align: center;
     max-width: 500px;
+`
+
+export const CarouselIntroContainer = styled(Carousel)`
+    margin: 0 0 85px;
 `
 
 export const CarouselSlide = styled.div`

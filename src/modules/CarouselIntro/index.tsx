@@ -3,6 +3,7 @@ import { ButtonDark } from '~components/Button'
 import { Carousel, CarouselSlides } from '~components/Carousel'
 
 import {
+    CarouselIntroContainer,
     CarouselIntroDot,
     CarouselIntroNav,
     CarouselSlide,
@@ -13,7 +14,7 @@ import {
 
 export const CarouselIntro = () => {
     return (
-        <Carousel>
+        <CarouselIntroContainer>
             <CarouselSlides>
                 <CarouselSlide>
                     <SlideContent>
@@ -48,6 +49,6 @@ export const CarouselIntro = () => {
             <CarouselIntroNav
                 renderItem={(props) => <CarouselIntroDot {...props} />}
             />
-        </Carousel>
+        </CarouselIntroContainer>
     )
 }
