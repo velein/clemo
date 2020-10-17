@@ -1,40 +1,45 @@
-import React, { Dispatch, ReactNode, SetStateAction, useState } from 'react'
+import styled from '@emotion/styled'
+import React, { ReactNode, useState } from 'react'
+import { Container } from '~components/Container'
 
-import { CarouselDots } from './components/CarouselDots'
-import { CarouselSlide } from './components/CarouselSlide'
-import { CarouselSlides } from './components/CarouselSlides'
-import { HandleSlideChange, useSlideChange } from './services/useSlideChange'
-import { SliderWrapper } from './styled'
+import { HandleSlideChange, useSlideChange } from './hooks/useSlideChange'
 
-type CarouselProps = {
-    children: ReactNode[] | ReactNode
-}
+type Slides = ReactNode[]
 
-type CarouselContextType = {
+type CarouselContext = {
+    slides: Slides
+    setSlides: React.Dispatch<React.SetStateAction<Slides>>
     activeSlideIndex: number
-    slidesMaxIndex: number
-    setSlidesMaxIndex: Dispatch<SetStateAction<number>>
     handleSlideChange: HandleSlideChange
 }
 
-export const CarouselContext = React.createContext({} as CarouselContextType)
+const CarouselContainer = styled.section`
+    position: relative;
+`
 
-export const Carousel: React.FC<CarouselProps> = ({ children, ...props }) => {
-    const [slidesMaxIndex, setSlidesMaxIndex] = useState<number>(0)
+export const CarouselContext = React.createContext<CarouselContext>(undefined!)
+
+export const Carousel: React.FC = ({ children, ...props }) => {
+    const [slides, setSlides] = useState<Slides>([])
     const { activeSlideIndex, handleSlideChange } = useSlideChange()
 
-    const value: CarouselContextType = {
-        activeSlideIndex,
-        slidesMaxIndex,
-        setSlidesMaxIndex,
-        handleSlideChange,
-    }
-
     return (
-        <CarouselContext.Provider value={value}>
-            <SliderWrapper {...props}>{children}</SliderWrapper>
-        </CarouselContext.Provider>
+        <CarouselContainer {...props}>
+            <CarouselContext.Provider
+                value={{
+                    activeSlideIndex,
+                    handleSlideChange,
+                    slides,
+                    setSlides,
+                }}
+            >
+                <Container>
+                    <div style={{ position: 'relative' }}>{children}</div>
+                </Container>
+            </CarouselContext.Provider>
+        </CarouselContainer>
     )
 }
 
-export { CarouselDots, CarouselSlide, CarouselSlides }
+export * from './components/CarouselSlides'
+export * from './components/CarouselNav'

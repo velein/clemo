@@ -1,19 +1,22 @@
 import React from 'react'
-import { Button } from '~components/Button'
-import { Carousel, CarouselSlides } from '~components/Carousel'
+import { ButtonDark } from '~components/Button'
+import { CarouselSlides } from '~components/Carousel'
+
 import {
+    CarouselIntroContainer,
+    CarouselIntroDot,
+    CarouselIntroNav,
+    CarouselSlide,
     Description,
     Headline,
     SlideContent,
-    StyledCarouselDots,
-    StyledCarouselSlide,
 } from './styled'
 
 export const CarouselIntro = () => {
     return (
-        <Carousel>
+        <CarouselIntroContainer>
             <CarouselSlides>
-                <StyledCarouselSlide>
+                <CarouselSlide>
                     <SlideContent>
                         <Headline>
                             we are clemo
@@ -23,27 +26,29 @@ export const CarouselIntro = () => {
                             professionals
                             <br /> in the creative industries
                         </Description>
-                        <Button variant="dark" label="get in touch" />
+                        <ButtonDark>get in touch</ButtonDark>
                     </SlideContent>
-                </StyledCarouselSlide>
-                <StyledCarouselSlide>
+                </CarouselSlide>
+                <CarouselSlide>
                     <SlideContent>
                         <Headline>hello there</Headline>
                         <Description>general kenobi</Description>
-                        <Button variant="dark" label="get in touch" />
+                        <ButtonDark>get in touch</ButtonDark>
                     </SlideContent>
-                </StyledCarouselSlide>
-                <StyledCarouselSlide>
+                </CarouselSlide>
+                <CarouselSlide>
                     <SlideContent>
                         <Headline>we are clemo 3</Headline>
                         <Description>
                             professionals in the creative industries
                         </Description>
-                        <Button variant="dark" label="get in touch" />
+                        <ButtonDark>get in touch</ButtonDark>
                     </SlideContent>
-                </StyledCarouselSlide>
+                </CarouselSlide>
             </CarouselSlides>
-            <StyledCarouselDots dotSpacing="8px 0" />
-        </Carousel>
+            <CarouselIntroNav
+                renderItem={(props) => <CarouselIntroDot {...props} />}
+            />
+        </CarouselIntroContainer>
     )
 }
