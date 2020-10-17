@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import React, { ReactNode, useState } from 'react'
+import { Container } from '~components/Container'
 
 import { HandleSlideChange, useSlideChange } from './hooks/useSlideChange'
 
@@ -32,7 +33,9 @@ export const Carousel: React.FC = ({ children, ...props }) => {
                     setSlides,
                 }}
             >
-                {children}
+                <Container>
+                    <div style={{ position: 'relative' }}>{children}</div>
+                </Container>
             </CarouselContext.Provider>
         </CarouselContainer>
     )
