@@ -11,19 +11,11 @@ export const GridItemImage = styled.img`
 
 export const GridItemArticle = styled.article`
     grid-area: article;
-    font-size: 18px;
 
     font-weight: 300;
 
-    &:nth-of-type(even) {
-        padding: 0 40px 0 0;
-    }
-
-    &:nth-of-type(odd) {
-        padding: 0 40px 0 0;
-    }
-
     p {
+        font-size: 18px;
         line-height: 1.35;
         margin: 0 0 30px;
     }
@@ -31,15 +23,16 @@ export const GridItemArticle = styled.article`
 
 export const GridItem = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-column-gap: 20px;
-    margin: 0 0 60px;
+    grid-column-gap: 100px;
+    margin: 0 0 100px;
 
-    &:nth-of-type(even) {
+    &:nth-of-type(odd) {
+        grid-template-columns: 50% auto;
         grid-template-areas: 'image article';
     }
 
-    &:nth-of-type(odd) {
+    &:nth-of-type(even) {
+        grid-template-columns: auto 50%;
         grid-template-areas: 'article image';
     }
 `
