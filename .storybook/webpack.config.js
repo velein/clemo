@@ -16,5 +16,15 @@ module.exports = ({ config }) => {
         '~layouts': path.resolve(__dirname, '../src/layouts'),
     }
 
+    /**
+     * SVG files were not working in Storyblok due to default webpack config
+     * could not load them properly.
+     * @see https://github.com/storybookjs/storybook/issues/6188
+     */
+    config.module.rules.unshift({
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
+    })
+
     return config
 }
