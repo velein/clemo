@@ -1,6 +1,6 @@
 import React from 'react'
 import { ButtonDark } from '~components/Button'
-import { Carousel, CarouselSlides } from '~components/Carousel'
+import { CarouselSlides } from '~components/Carousel'
 
 import {
     CarouselIntroContainer,

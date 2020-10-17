@@ -1,6 +1,7 @@
 import styled from '@emotion/styled'
+import { Link } from '~components/Link'
 
-export const LogoStyled = styled.a`
+export const LogoStyled = styled(Link)`
     display: block;
     color: #000000;
     text-decoration: none;

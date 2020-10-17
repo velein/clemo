@@ -10,19 +10,19 @@ export const Navigation: React.FC = () => {
     return (
         <NavigationStyled>
             <NavigationItem active>
-                <NavigationLink href="/about-us">about us</NavigationLink>
+                <NavigationLink to="/about-us">about us</NavigationLink>
             </NavigationItem>
             <NavigationItem>
-                <NavigationLink href="/services">services</NavigationLink>
+                <NavigationLink to="/services">services</NavigationLink>
             </NavigationItem>
             <NavigationItem>
-                <NavigationLink href="/contact">contact</NavigationLink>
+                <NavigationLink to="/contact">contact</NavigationLink>
             </NavigationItem>
             <NavigationItem>
-                <NavigationLink href="/blog">blog</NavigationLink>
+                <NavigationLink to="/blog">blog</NavigationLink>
             </NavigationItem>
             <NavigationItem>
-                <NavigationLink href="/contact">contact</NavigationLink>
+                <NavigationLink to="/contact">contact</NavigationLink>
             </NavigationItem>
         </NavigationStyled>
     )
